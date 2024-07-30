@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const ImageConverterForm = () => {
+const CompressImagePage = () => {
   const [selectedFile, setSelectedFile] = useState(null);
-  const [format, setFormat] = useState("png");
+  const [quality, setQuality] = useState(75); // Default quality
   const [downloadUrl, setDownloadUrl] = useState("");
   const [error, setError] = useState(null);
 
@@ -13,8 +13,8 @@ const ImageConverterForm = () => {
     setError(null);
   };
 
-  const handleFormatChange = (event) => {
-    setFormat(event.target.value);
+  const handleQualityChange = (event) => {
+    setQuality(event.target.value);
   };
 
   const handleSubmit = async (event) => {
@@ -28,13 +28,11 @@ const ImageConverterForm = () => {
 
     const formData = new FormData();
     formData.append("image", selectedFile);
-    formData.append("format", format);
-
-    console.log("Submitting form with data:", formData);
+    formData.append("quality", quality);
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/images/convert",
+        "http://localhost:5000/api/images/compress",
         formData,
         {
           responseType: "blob",
@@ -45,30 +43,31 @@ const ImageConverterForm = () => {
       const url = window.URL.createObjectURL(new Blob([response.data]));
       setDownloadUrl(url);
     } catch (error) {
-      console.error("Error converting the image", error.response || error);
-      setError("Error converting the image");
+      console.error("Error compressing the image", error);
+      setError("Error compressing the image");
     }
   };
 
   return (
-    <div className="converter-form">
-      <h1>Image Format Converter</h1>
+    <div className="compress-image-page">
+      <h1>Image Compression</h1>
       {error && <p className="error">{error}</p>}
       <form onSubmit={handleSubmit}>
         <input type="file" onChange={handleFileChange} required />
-        <select value={format} onChange={handleFormatChange}>
-          <option value="png">PNG</option>
-          <option value="jpeg">JPEG</option>
-          <option value="webp">WEBP</option>
-          <option value="tiff">TIFF</option>
-          <option value="gif">GIF</option>
-        </select>
-        <button type="submit">Convert</button>
+        <input
+          type="number"
+          value={quality}
+          onChange={handleQualityChange}
+          min="1"
+          max="100"
+          required
+        />
+        <button type="submit">Compress</button>
       </form>
       {downloadUrl && (
         <div>
-          <a href={downloadUrl} download={`converted.${format}`}>
-            <button>Download Converted Image</button>
+          <a href={downloadUrl} download="compressed-image.jpg">
+            <button>Download Compressed Image</button>
           </a>
         </div>
       )}
@@ -76,4 +75,4 @@ const ImageConverterForm = () => {
   );
 };
 
-export default ImageConverterForm;
+export default CompressImagePage;
