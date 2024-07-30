@@ -30,9 +30,11 @@ const ImageConverterForm = () => {
     formData.append("image", selectedFile);
     formData.append("format", format);
 
+    console.log("Submitting form with data:", formData);
+
     try {
       const response = await axios.post(
-        `${process.env.REACT_APP_API_BASE_URL}/api/images/convert`,
+        "http://localhost:5000/api/images/convert",
         formData,
         {
           responseType: "blob",
@@ -43,8 +45,8 @@ const ImageConverterForm = () => {
       const url = window.URL.createObjectURL(new Blob([response.data]));
       setDownloadUrl(url);
     } catch (error) {
+      console.error("Error converting the image", error.response || error);
       setError("Error converting the image");
-      console.error("Error converting the image", error);
     }
   };
 
