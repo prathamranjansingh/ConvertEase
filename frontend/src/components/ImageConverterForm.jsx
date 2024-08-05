@@ -22,6 +22,9 @@ const ImageConverterForm = () => {
     event.preventDefault();
     setError(null);
 
+    const url = `${import.meta.env.VITE_BACKEND_URL}/api/images/compress`;
+    console.log("Submitting to URL:", url);
+
     if (!selectedFile) {
       setError("Please select a file to upload.");
       return;
@@ -31,11 +34,14 @@ const ImageConverterForm = () => {
     formData.append("image", selectedFile);
     formData.append("format", format);
 
-    console.log("Submitting form with data:", formData);
+    // Log FormData entries
+    for (let pair of formData.entries()) {
+      console.log(pair[0] + ", " + pair[1]);
+    }
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/images/convert",
+        `${import.meta.env.VITE_BACKEND_URL}/api/images/convert`,
         formData,
         {
           responseType: "blob",

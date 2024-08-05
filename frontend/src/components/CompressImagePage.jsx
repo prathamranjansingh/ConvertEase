@@ -42,7 +42,7 @@ const CompressImagePage = () => {
 
     try {
       const response = await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}api/images/compress`, // Use environment variable
+        `${import.meta.env.VITE_BACKEND_URL}/api/images/compress`, // Use environment variable
         formData,
         {
           responseType: "blob",
