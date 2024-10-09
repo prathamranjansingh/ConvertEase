@@ -13,7 +13,6 @@ const compressImage = async (req, res) => {
       return res.status(400).json({ error: "No file uploaded" });
     }
 
-    // Validate quality input
     const qualityValue = parseInt(quality, 10);
     if (isNaN(qualityValue) || qualityValue < 1 || qualityValue > 100) {
       return res

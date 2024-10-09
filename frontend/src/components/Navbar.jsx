@@ -6,7 +6,7 @@ const Navbar = () => {
       <nav>
         <div className="max-w-screen-xl flex items-center justify-between mx-auto p-4">
           <a
-            href="https://flowbite.com/"
+            href="/"
             className="flex items-center space-x-3 rtl:space-x-reverse">
             <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
               ConvertEase

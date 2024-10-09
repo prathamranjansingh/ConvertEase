@@ -1,7 +1,7 @@
 import React from "react";
 import { ArrowRight, Github, Twitter } from "lucide-react";
 import Card from "./Card";
-import Navbar from "./Navbar";
+import { Link } from "react-router-dom";
 const Home = () => {
   return (
     <div>
