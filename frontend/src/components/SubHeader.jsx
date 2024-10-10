@@ -10,7 +10,7 @@ import { Button } from "./ui/button";
 const SubHeader = () => {
   return (
     <section className="mb-28">
-      <div className="relative py-24 md:py-32">
+      <div className="relative py-24 font-manrope md:py-32">
         <picture className="absolute inset-0 -z-1">
           <img
             loading="lazy"
