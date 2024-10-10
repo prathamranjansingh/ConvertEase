@@ -21,7 +21,7 @@ ConvertEase is built using the MERN stack, leveraging:
 
 ## Demo Video
 
-[![Watch the video]([https://link-to-your-thumbnail-image.com](https://github.com/prathamranjansingh/ConvertEase/blob/main/ConvertEase%20Thumbnail.png?raw=true))](https://drive.google.com/file/d/1ZuUWKzchmWgtXPkp0YRr7DGeTzBpJsZA/view?usp=sharing)
+[![Watch the video](https://raw.githubusercontent.com/prathamranjansingh/ConvertEase/refs/heads/main/ConvertEase%20Thumbnail.png)](https://drive.google.com/file/d/1ZuUWKzchmWgtXPkp0YRr7DGeTzBpJsZA/view?usp=sharing)
 
 ## Conclusion
 
