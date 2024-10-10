@@ -1,14 +1,13 @@
-import Navbar from "./Components/Navbar"
-import Header from "./Components/Header"
-import CompressPage from "./pages/CompressPage"
+import {BrowserRouter as Router,  Route,  Routes } from "react-router-dom"
+import Home from "./pages/Home"
 function App() {
 
   return (
-    <div className="flex min-h-[100dvh] flex-col overflow-x-hidden text-black antialiased dark:bg-black dark:text-white bg-neutral-100">
-      <Navbar />
-      <Header />
-      <CompressPage />
-    </div>
+    <Router>
+      <Routes>
+        <Route path='/' element={<Home/>}/>
+      </Routes>
+    </Router>
   )
 }
 
