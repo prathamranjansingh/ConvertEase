@@ -2,12 +2,11 @@ const multer = require("multer");
 const path = require("path");
 const fs = require("fs");
 
-// Ensure the uploads directory exists
 if (!fs.existsSync("uploads")) {
   fs.mkdirSync("uploads");
 }
 
-// Multer setup for file storage
+
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, "uploads");
@@ -21,10 +20,10 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-// Function to delete old images
+
 const deleteOldImages = () => {
   const dir = "uploads";
-  const retentionPeriod =30* 60 * 1000; // 1 minute in milliseconds
+  const retentionPeriod =30* 60 * 1000; 
 
   fs.readdir(dir, (err, files) => {
     if (err) {
@@ -41,7 +40,6 @@ const deleteOldImages = () => {
           return;
         }
 
-        // Check if the file is older than the retention period
         if (now - stats.mtimeMs > retentionPeriod) {
           fs.unlink(filePath, (err) => {
             if (err) {
@@ -56,7 +54,6 @@ const deleteOldImages = () => {
   });
 };
 
-// Schedule deletion of old images every minute
-setInterval(deleteOldImages, 60 * 1000); // Run every minute
+setInterval(deleteOldImages, 60 * 1000); 
 
 module.exports = upload;

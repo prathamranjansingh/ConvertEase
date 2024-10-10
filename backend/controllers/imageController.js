@@ -2,7 +2,7 @@ const sharp = require("sharp");
 const path = require("path");
 const fs = require("fs");
 
-// Handle image conversion
+
 const convertImage = async (req, res) => {
   try {
     if (!req.file) {
@@ -21,7 +21,7 @@ const convertImage = async (req, res) => {
       "pdf",
     ];
 
-    // Check if the provided format is valid
+
     if (!validFormats.includes(outputFormat)) {
       return res.status(400).json({ error: "Invalid format provided" });
     }
@@ -29,19 +29,16 @@ const convertImage = async (req, res) => {
     const outputFilename = `${Date.now()}.${outputFormat}`;
     const outputPath = path.join("uploads", outputFilename);
 
-    // Convert the image format using sharp
     await sharp(req.file.path).toFormat(outputFormat).toFile(outputPath);
 
-    // Send the converted file for download
     res.download(outputPath, (err) => {
       if (err) {
         console.error("Error sending the file", err);
       }
 
-      // Clean up the original and converted files
       try {
-        fs.unlinkSync(req.file.path); // Delete original file
-        fs.unlinkSync(outputPath); // Delete converted file
+        fs.unlinkSync(req.file.path); 
+        fs.unlinkSync(outputPath); 
       } catch (cleanupError) {
         console.error("Error cleaning up files", cleanupError);
       }

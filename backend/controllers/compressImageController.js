@@ -24,21 +24,20 @@ const compressImage = async (req, res) => {
     const fileName = `${uuidv4()}${fileExtension}`;
     const outputPath = path.join(uploadDir, fileName);
 
-    // Compress the image using sharp
+  
     await sharp(req.file.path)
-      .jpeg({ quality: qualityValue }) // Adjust compression for JPEG, change as needed
+      .jpeg({ quality: qualityValue })
       .toFile(outputPath);
 
-    // Send the compressed file for download
+
     res.download(outputPath, (err) => {
       if (err) {
         console.error("Error sending the file", err);
       }
 
-      // Clean up the original and compressed files
       try {
-        fs.unlinkSync(req.file.path); // Delete original file
-        fs.unlinkSync(outputPath); // Delete compressed file
+        fs.unlinkSync(req.file.path); 
+        fs.unlinkSync(outputPath); 
       } catch (cleanupError) {
         console.error("Error cleaning up files", cleanupError);
       }

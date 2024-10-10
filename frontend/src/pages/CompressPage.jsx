@@ -103,7 +103,6 @@ export default function ImageCompressionComponent() {
         </div>
       )}
 
-      {/* Render the quality slider and compress button only if there is no download URL */}
       {!downloadUrl && (
         <>
           <div className="mb-6">

@@ -23,21 +23,19 @@ const resizeImage = async (req, res) => {
     const fileName = `${uuidv4()}${fileExtension}`;
     const outputPath = path.join(uploadDir, fileName);
 
-    // Resize the image using sharp
+
     await sharp(req.file.path)
-      .resize(widthValue, heightValue) // Resize to specified width and height
+      .resize(widthValue, heightValue) 
       .toFile(outputPath);
 
-    // Send the resized file for download
     res.download(outputPath, (err) => {
       if (err) {
         console.error("Error sending the file", err);
       }
 
-      // Clean up the original and resized files
       try {
-        fs.unlinkSync(req.file.path); // Delete original file
-        fs.unlinkSync(outputPath); // Delete resized file
+        fs.unlinkSync(req.file.path); 
+        fs.unlinkSync(outputPath); 
       } catch (cleanupError) {
         console.error("Error cleaning up files", cleanupError);
       }
