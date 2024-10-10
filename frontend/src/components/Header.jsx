@@ -29,7 +29,7 @@ const Header = () => {
         style={{ opacity: 1, willChange: 'transform', transform: 'none' }}
         className="flex items-center justify-center gap-1 rounded-full px-5 py-2 font-bold transition-colors text-white bg-[#007AFF] mt-4"
         data-discover="true"
-        href="/signup"
+        href="/convert"
       >
         Get started for free
         <svg

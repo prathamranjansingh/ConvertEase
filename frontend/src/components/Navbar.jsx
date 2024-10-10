@@ -1,11 +1,9 @@
-import React from 'react';
-
 const Navbar = () => {
   return (
     <nav className="sticky top-0 z-50 px-4 font-manrope text-sm font-extrabold bg-black/80">
       <div className="mx-auto flex max-w-xl items-center border-b border-white/10 ">
         <h1 className="text-lg">
-          <a className="py-4 font-bricolage">
+          <a  href="/" className="py-4 font-bricolage">
             ConvertEase
           </a>
         </h1>

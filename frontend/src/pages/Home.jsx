@@ -1,6 +1,6 @@
-import SubHeader from '../Components/SubHeader'
-import Header from '../Components/Header'
-import Navbar from '../Components/Navbar'
+import SubHeader from '../Components/SubHeader.jsx'
+import Header from '../Components/Header.jsx'
+import Navbar from '../Components/Navbar.jsx'
 
 const Home = () => {
   return (

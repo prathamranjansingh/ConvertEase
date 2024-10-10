@@ -4,8 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import wallpaperBlurredPng from "../assets/wallpaper-blurred-dark.png";
+import Navbar from "@/Components/Navbar";
 import { useToast } from "@/hooks/use-toast";
-
 export default function ImageConverterForm() {
   const { toast } = useToast();
   const [selectedFile, setSelectedFile] = useState(null);
@@ -60,6 +60,8 @@ export default function ImageConverterForm() {
 
 
   return (
+    <>
+    <Navbar/>
     <div className="bg-neutral-900/50 max-w-md mx-auto mt-10 p-6 rounded-lg shadow-lg font-manrope font-extrabold">
       <picture className="absolute inset-0 -z-50">
         <img
@@ -162,5 +164,6 @@ export default function ImageConverterForm() {
         description: error,
       })}
     </div>
+    </>
   );
 }
