@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import wallpaperBlurredPng from "../assets/wallpaper-blurred-dark.png";
-import Navbar from "@/Components/Navbar";
+import Navbar from "@/components/Navbar";
 import { useToast } from "@/hooks/use-toast";
 export default function ImageConverterForm() {
   const { toast } = useToast();

@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import wallpaperBlurredPng from "../assets/wallpaper-blurred-dark.png";
 import { useToast } from "@/hooks/use-toast"
-import Navbar from '@/Components/Navbar';
+import Navbar from '@/components/Navbar';
 export default function ImageCompressionComponent() {
   const { toast } = useToast();
   const [imagePreview, setImagePreview] = useState(null);
