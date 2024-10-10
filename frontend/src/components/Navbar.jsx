@@ -1,46 +1,45 @@
-import React from "react";
+import React from 'react';
 
 const Navbar = () => {
   return (
-    <div>
-      <nav>
-        <div className="max-w-screen-xl flex items-center justify-between mx-auto p-4">
-          <a
-            href="/"
-            className="flex items-center space-x-3 rtl:space-x-reverse">
-            <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-              ConvertEase
-            </span>
+    <nav className="sticky top-0 z-50 px-4 font-manrope text-sm font-extrabold bg-black/80">
+      <div className="mx-auto flex max-w-xl items-center border-b border-white/10 ">
+        <h1 className="text-lg">
+          <a className="py-4 font-bricolage">
+            ConvertEase
           </a>
-
-          <div className="hidden sm:flex items-center ml-8">
-            <ul className="font-medium flex flex-row items-center space-x-4 lg:space-x-6">
-              <li>
-                <a
-                  href="/compress"
-                  className="block py-2 px-2 lg:px-4 rounded text-white hover:text-white">
-                  Compress
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="block py-2 px-2 lg:px-4 rounded text-white hover:text-white">
-                  Resize
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/conversion"
-                  className="block py-2 px-2 lg:px-4 rounded text-white hover:text-white">
-                  Convert
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </div>
+        </h1>
+        <ul className="-mx-4 flex flex-1 items-center justify-end text-neutral-200 ">
+          <li>
+            <a
+              data-discover="true"
+              className="label block p-4 opacity-70 transition-opacity hover:opacity-60 aria-[current=page]:opacity-100"
+              href="/compress"
+            >
+              Compress
+            </a>
+          </li>
+          <li>
+            <a
+              data-discover="true"
+              className="label block p-4 opacity-70 transition-opacity hover:opacity-60 aria-[current=page]:opacity-100"
+              href="/resize"
+            >
+              Resize
+            </a>
+          </li>
+          <li>
+            <a
+              data-discover="true"
+              className="label block p-4 opacity-70 transition-opacity hover:opacity-60 aria-[current=page]:opacity-100"
+              href="/convert"
+            >
+             Convert
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
   );
 };
 

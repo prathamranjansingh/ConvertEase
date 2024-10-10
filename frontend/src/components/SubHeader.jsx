@@ -4,12 +4,12 @@ import file3 from "../assets/file-5.webp";
 import file4 from "../assets/file-6.webp";
 import wallpaperBlurredPng from "../assets/wallpaper-blurred-dark.png";
 import avatar from "../assets/avatar.png";
-
 import { Link } from "react-router-dom";
+import { Button } from "./ui/button";
 
 const SubHeader = () => {
   return (
-    <section>
+    <section className="mb-28">
       <div className="relative py-24 md:py-32">
         <picture className="absolute inset-0 -z-1">
           <img
@@ -223,8 +223,9 @@ const SubHeader = () => {
           </p>
           <Link
             to="/compress"
-            className="flex items-center justify-center gap-1 rounded-full px-5 py-2 font-bold transition-colors bg-black hover:bg-neutral-800 dark:hover:bg-neutral-200 dark:bg-white text-white dark:text-black mt-4"
+            
           >
+            <Button className="flex items-center justify-center gap-1 mt-14">
             Get started for free
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -241,6 +242,7 @@ const SubHeader = () => {
               <path d="M5 12h14" />
               <path d="m12 5 7 7-7 7" />
             </svg>
+            </Button>
           </Link>
         </div>
       </div>
